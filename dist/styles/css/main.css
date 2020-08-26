@@ -1,0 +1,8 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, red), color-stop(75%, black));
+  background: linear-gradient(to right, red 10%, black 75%); }
