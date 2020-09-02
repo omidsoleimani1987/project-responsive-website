@@ -1,60 +1,80 @@
+// common
 const gulp = require('gulp');
-const sass = require('gulp-sass');
 const browserSync = require('browser-sync').create();
+const rename = require('gulp-rename');
+const clean = require('gulp-clean');
+// css
+const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const cleanCSS = require('gulp-clean-css');
+// img
+const imagemin = require('gulp-imagemin');
+// js
+const uglify = require('gulp-uglify');
 
-const paths = {
-  html: {
-    src: './src/**/*.html',
-    dest: './dist'
-  },
-  styles: {
-    sass: {
-      src: './src/styles/sass/**/*.scss',
-      dest: './dist/styles/css'
-    },
-    images: {
-      src: './src/styles/images',
-      dest: './dist/styles/images'
-    }
-  },
-  scripts: {
-    src: './src/scripts/**/*.js',
-    dest: './dist/scripts'
-  }
-};
-
-// compile scss to css
-function completeStyling() {
-  return (
-    //1. where is my sass files
-    gulp
-      .src(paths.styles.sass.src)
-      // or : return gulp.src('./src/sass/style.scss');
-      //2. pass that files throw sass compiler
-      .pipe(sass().on('error', sass.logError))
-      //3. autoprefixer
-      .pipe(autoprefixer('last 2 versions'))
-      //4. where to save compiled css
-      .pipe(gulp.dest(paths.styles.sass.dest))
-      //5. stream changes to all browsers
-      .pipe(browserSync.stream())
-  );
+// Clean assets
+function clear() {
+  return gulp
+    .src('./assets/*', {
+      read: false
+    })
+    .pipe(clean());
 }
 
-//watch
-function watchAllChanges() {
+// css
+function css() {
+  return gulp
+    .src('./src/styles/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer('last 2 versions'))
+    .pipe(
+      rename({
+        extname: '.min.css'
+      })
+    )
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('./assets/css/'))
+    .pipe(browserSync.stream());
+}
+
+// image
+function img() {
+  return gulp
+    .src('./src/images/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./assets/images'));
+}
+
+// JS function
+
+function js() {
+  return gulp
+    .src('./src/scripts/**/*.js')
+    .pipe(uglify())
+    .pipe(
+      rename({
+        extname: '.min.js'
+      })
+    )
+    .pipe(gulp.dest('./assets/scripts/'))
+    .pipe(browserSync.stream());
+}
+
+// BrowserSync
+
+function watch() {
   browserSync.init({
     server: {
-      baseDir: './dist'
-    }
+      baseDir: './'
+    },
+    port: 3000
   });
-  gulp.watch(paths.styles.sass.src, completeStyling);
-  gulp.watch(paths.html.src).on('change', browserSync.reload);
-  gulp.watch(paths.scripts.src).on('change', browserSync.reload);
+
+  gulp.watch('./src/styles/*', css);
+  gulp.watch('./src/images/*', img);
+  gulp.watch('./src/scripts/*', js);
+  gulp.watch('./**/*.html').on('change', browserSync.reload);
 }
 
-exports.style = completeStyling;
-// cmd: gulp style
-exports.watch = watchAllChanges;
-// external url can be used for the mobile preview in the same network
+exports.clear = clear; // "gulp clear" : all in assets folder
+exports.watch = watch; // "gulp watch" : to watch js, img, scss
