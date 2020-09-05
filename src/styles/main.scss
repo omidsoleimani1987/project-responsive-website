@@ -1,8 +1,149 @@
-h1 {
-  color: red;
+/*-------------------------------
+------- variables
+-------------------------------*/
+@import '_variables.scss';
+
+/*-------------------------------
+------- Global styling
+-------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
 body {
-  height: 100vh;
-  background-image: url('../images/1.jpg');
+  font-family: 'Roboto Condensed', sans-serif;
+}
+/*-------------------------------
+------- header
+-------------------------------*/
+header {
+  height: 5rem;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu-icon {
+    margin: 0 0.625rem;
+    cursor: pointer;
+
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: map-get($colors, main-orange);
+      margin: 4px 0;
+    }
+  }
+
+  img {
+    width: 130px;
+    margin: 0 0.625rem;
+  }
+}
+/*-------------------------------
+------- big image section
+-------------------------------*/
+// animation classes:
+.fade-in {
+  animation: fade-in 0.5s ease-in;
+}
+
+.move-text {
+  animation: move-text 1s 0.5s ease-in forwards;
+}
+
+// normal classes:
+.slideshow {
+  position: relative;
+  height: 60vh;
+  font-family: inherit;
+  background-image: url('../images/1.jpg');
+  background-size: cover;
+  background-position: 70% 0%;
+
+  .arrivals {
+    position: absolute;
+    left: 8%;
+    top: 10%;
+
+    .underline {
+      width: 30%;
+      height: 1px;
+      background-color: #000000;
+      margin-top: 5px;
+    }
+  }
+
+  .big-text {
+    border-left: 4px solid map-get($colors, main-orange);
+    padding-left: 7px;
+    position: absolute;
+    left: 8%;
+    top: 50%;
+
+    p {
+      font-size: 35px;
+    }
+  }
+
+  .dots {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    bottom: 3%;
+    display: flex;
+
+    div {
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 0 9px;
+      background-color: rgb(177, 177, 177);
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+        border: 3px solid map-get($colors, main-orange);
+      }
+    }
+  }
+  @media screen and (min-width: 480px) {
+    height: 100vh;
+    background-position: center;
+
+    .big-text p {
+      font-size: 50px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    height: 100vh;
+  }
+}
+
+/*-------------------------------
+------- animations
+-------------------------------*/
+@keyframes fade-in {
+  from {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes move-text {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(60px);
+  }
 }

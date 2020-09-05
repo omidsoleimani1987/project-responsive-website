@@ -77,4 +77,4 @@ function watch() {
 }
 
 exports.clear = clear; // "gulp clear" : all in assets folder
-exports.watch = watch; // "gulp watch" : to watch js, img, scss
+exports.watch = watch; // "gulp watch" : create server and to watch js, img, scss

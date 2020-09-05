@@ -1,7 +1,7 @@
 {
-  "name": "gulp-sample-project",
+  "name": "e-commerce-website",
   "version": "1.0.0",
-  "description": "frontend gulp tools",
+  "description": "responsive-website-project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
