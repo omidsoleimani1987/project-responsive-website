@@ -8,6 +8,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
+  // hamburger icon
   .menu-icon {
     margin: 0 15px;
     cursor: pointer;
@@ -20,14 +21,130 @@ header {
     }
   }
 
+  // logo image
   img {
     width: 130px;
   }
 
+  // shopping cart icon
   i {
     font-size: 25px;
     color: map-get($colors, main-orange);
     margin: 0 15px;
     cursor: pointer;
   }
+
+  // side Nav menu
+
+  .navigation {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: -65%;
+    height: 100%;
+    background-color: #ffffff;
+    width: 65%;
+    overflow: hidden;
+    transition: left 0.6s linear;
+
+    //close button div
+    .navigation__close-button {
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      color: #ffffff;
+      background-color: map-get($colors, main-orange);
+      text-align: right;
+      height: 55px;
+
+      p {
+        font-size: 20px;
+      }
+
+      // close icon
+      i {
+        padding: 0;
+        margin-right: 15px;
+        color: #ffffff;
+        font-size: 20px;
+      }
+    }
+
+    // navigation list
+    .navigation__list {
+      width: 100%;
+      padding: 30px 10px 0 15px;
+      list-style-type: none;
+
+      // navigation list items
+      .navigation__item {
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        a {
+          transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover {
+          a {
+            color: map-get($colors, main-orange);
+            transform: translateX(10px);
+          }
+        }
+      }
+
+      // product items
+      .products {
+        width: 60%;
+        display: none;
+
+        .products__list {
+          list-style-type: none;
+        }
+
+        .products__item {
+          cursor: pointer;
+          padding-left: 15px;
+          line-height: 40px;
+          height: 40px;
+          color: map-get($colors, dark-gray);
+
+          &:hover {
+            color: map-get($colors, main-orange);
+          }
+        }
+      }
+      // toggle product menu preview
+      .products-open {
+        display: block;
+      }
+
+      .navigation__item:not(:first-of-type) {
+        border-top: 1px solid map-get($colors, light-gray);
+      }
+
+      i {
+        color: map-get($colors, light-gray);
+        font-size: 15px;
+      }
+
+      a {
+        text-decoration: none;
+        color: map-get($colors, dark-gray);
+      }
+    }
+  }
+
+  // class open for js to toggle the width of side nav
+  .sideNav-open {
+    left: 0;
+  }
 }
+
+/*-------------------------------
+------- animations
+-------------------------------*/
