@@ -7,33 +7,39 @@
     <meta name="keywords" content="HTML, CSS, JavaScript" />
     <meta name="author" content="omid soleimani" />
     <link rel="stylesheet" href="assets/css/main.min.css" />
+    <script
+      src="https://kit.fontawesome.com/2afc0aa7f0.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="assets/scripts/main.min.js"></script>
     <title>Document</title>
   </head>
   <body>
+    <div class="bottom-icons">
+      <i class="fas fa-home"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-search"></i>
+      <i class="fas fa-heart"></i>
+    </div>
     <header>
       <div class="menu-icon">
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <nav class="navbar">
-        <img src="assets/images/logo.png" alt="logo image here" />
-      </nav>
+      <img src="assets/images/logo.png" alt="logo image here" />
+      <!-- <nav class="navbar"></nav> -->
+      <i class="fas fa-shopping-cart"></i>
     </header>
-    <section class="slideshow fade-in">
+
+    <section class="slideshow fade-in" id="slideshow-container">
       <div class="arrivals">
         <p>NEW ARRIVALS</p>
         <div class="underline"></div>
       </div>
-      <div class="big-text">
-        <p>New</p>
+      <div class="big-text move-text">
+        <p id="slideshow-text">Chair</p>
         <p>Collection</p>
-      </div>
-      <div class="dots">
-        <div></div>
-        <div></div>
-        <div></div>
       </div>
     </section>
   </body>

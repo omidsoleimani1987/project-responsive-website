@@ -16,6 +16,32 @@
 
 body {
   font-family: 'Roboto Condensed', sans-serif;
+  height: 3000px;
+}
+/*-------------------------------
+------- bottom icons for mobile
+-------------------------------*/
+.bottom-icons {
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  border-top: 1px solid map-get($colors, light-gray);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  i {
+    font-size: 25px;
+    color: map-get($colors, main-orange);
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
 }
 /*-------------------------------
 ------- header
@@ -28,7 +54,7 @@ header {
   align-items: center;
 
   .menu-icon {
-    margin: 0 0.625rem;
+    margin: 0 15px;
     cursor: pointer;
 
     div {
@@ -41,19 +67,26 @@ header {
 
   img {
     width: 130px;
-    margin: 0 0.625rem;
+  }
+
+  i {
+    font-size: 25px;
+    color: map-get($colors, main-orange);
+    margin: 0 15px;
+    cursor: pointer;
   }
 }
+
 /*-------------------------------
 ------- big image section
 -------------------------------*/
 // animation classes:
 .fade-in {
-  animation: fade-in 0.5s ease-in;
+  animation: fade-in 0.8s ease-in;
 }
 
 .move-text {
-  animation: move-text 1s 0.5s ease-in forwards;
+  animation: move-text 0.5s 0.9s ease-in forwards;
 }
 
 // normal classes:
@@ -61,14 +94,15 @@ header {
   position: relative;
   height: 60vh;
   font-family: inherit;
-  background-image: url('../images/1.jpg');
+  background-image: url('../images/01-slideshow.jpg');
   background-size: cover;
   background-position: 70% 0%;
+  transition: background-image 0.4s linear;
 
   .arrivals {
     position: absolute;
     left: 8%;
-    top: 10%;
+    top: 15%;
 
     .underline {
       width: 30%;
@@ -98,23 +132,9 @@ header {
     justify-content: center;
     bottom: 3%;
     display: flex;
-
-    div {
-      border-radius: 50%;
-      width: 10px;
-      height: 10px;
-      margin: 0 9px;
-      background-color: rgb(177, 177, 177);
-      cursor: pointer;
-
-      &:hover {
-        background-color: transparent;
-        border: 3px solid map-get($colors, main-orange);
-      }
-    }
   }
   @media screen and (min-width: 480px) {
-    height: 100vh;
+    height: calc(100vh - 80px);
     background-position: center;
 
     .big-text p {
@@ -122,7 +142,7 @@ header {
     }
   }
   @media screen and (min-width: 1024px) {
-    height: 100vh;
+    height: calc(100vh - 80px);
   }
 }
 
@@ -132,7 +152,7 @@ header {
 @keyframes fade-in {
   from {
     opacity: 0.4;
-    transform: scale(0.8);
+    transform: scale(1.5);
   }
   to {
     opacity: 1;

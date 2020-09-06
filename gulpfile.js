@@ -10,6 +10,7 @@ const cleanCSS = require('gulp-clean-css');
 // img
 const imagemin = require('gulp-imagemin');
 // js
+const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 
 // Clean assets
@@ -50,6 +51,11 @@ function img() {
 function js() {
   return gulp
     .src('./src/scripts/**/*.js')
+    .pipe(
+      babel({
+        presets: ['@babel/env']
+      })
+    )
     .pipe(uglify())
     .pipe(
       rename({
