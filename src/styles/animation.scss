@@ -1,0 +1,21 @@
+/*-------------------------------
+------- animations
+-------------------------------*/
+@keyframes fade-in {
+  from {
+    opacity: 0.4;
+    transform: scale(1.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes move-text {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(60px);
+  }
+}

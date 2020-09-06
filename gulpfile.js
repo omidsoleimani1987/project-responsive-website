@@ -10,6 +10,7 @@ const cleanCSS = require('gulp-clean-css');
 // img
 const imagemin = require('gulp-imagemin');
 // js
+const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 
@@ -25,7 +26,7 @@ function clear() {
 // css
 function css() {
   return gulp
-    .src('./src/styles/**/*.scss')
+    .src('./src/styles/**/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 2 versions'))
     .pipe(
@@ -51,6 +52,7 @@ function img() {
 function js() {
   return gulp
     .src('./src/scripts/**/*.js')
+    .pipe(concat('main.js'))
     .pipe(
       babel({
         presets: ['@babel/env']

@@ -1,5 +1,5 @@
 /*-------------------------------
-------- big image section
+------- big landing image section
 -------------------------------*/
 let indexId = 1;
 

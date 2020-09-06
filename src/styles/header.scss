@@ -1,0 +1,33 @@
+/*-------------------------------
+------- top header section
+-------------------------------*/
+header {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .menu-icon {
+    margin: 0 15px;
+    cursor: pointer;
+
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: map-get($colors, main-orange);
+      margin: 4px 0;
+    }
+  }
+
+  img {
+    width: 130px;
+  }
+
+  i {
+    font-size: 25px;
+    color: map-get($colors, main-orange);
+    margin: 0 15px;
+    cursor: pointer;
+  }
+}
