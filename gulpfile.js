@@ -3,6 +3,8 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const rename = require('gulp-rename');
 const clean = require('gulp-clean');
+//html
+const htmlmin = require('gulp-htmlmin');
 // css
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
@@ -23,6 +25,23 @@ function clear() {
     .pipe(clean());
 }
 
+// html
+function html() {
+  return gulp
+    .src('./src/**/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+    .pipe(gulp.dest('./'))
+    .pipe(browserSync.stream());
+}
+
+// image
+function img() {
+  return gulp
+    .src('./src/images/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./assets/images'));
+}
+
 // css
 function css() {
   return gulp
@@ -37,14 +56,6 @@ function css() {
     .pipe(cleanCSS())
     .pipe(gulp.dest('./assets/css/'))
     .pipe(browserSync.stream());
-}
-
-// image
-function img() {
-  return gulp
-    .src('./src/images/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('./assets/images'));
 }
 
 // JS function
@@ -78,12 +89,14 @@ function watch() {
     port: 3000
   });
 
-  gulp.watch('./src/styles/*', css);
+  gulp.watch('./src/*.html', html);
   gulp.watch('./src/images/*', img);
+  gulp.watch('./src/styles/*', css);
   gulp.watch('./src/scripts/*', js);
   gulp.watch('./**/*.html').on('change', browserSync.reload);
 }
 
+exports.html = html;
 exports.css = css;
 exports.img = img;
 exports.js = js;

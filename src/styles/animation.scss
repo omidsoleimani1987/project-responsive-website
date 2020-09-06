@@ -1,6 +1,14 @@
 /*-------------------------------
 ------- animations
 -------------------------------*/
+@keyframes underline {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 40%;
+  }
+}
 @keyframes fade-in {
   from {
     opacity: 0.4;

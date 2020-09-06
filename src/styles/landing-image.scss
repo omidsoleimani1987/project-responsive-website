@@ -26,10 +26,10 @@
     top: 15%;
 
     .underline {
-      width: 30%;
-      height: 1px;
+      height: 2px;
       background-color: #000000;
-      margin-top: 5px;
+      margin-top: 6px;
+      animation: underline 1s 0.8s linear forwards;
     }
   }
 
