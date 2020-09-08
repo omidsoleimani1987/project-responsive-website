@@ -40,7 +40,7 @@
     padding-left: 0.4375rem;
     position: absolute;
     left: 8%;
-    top: 50%;
+    top: 55%;
 
     p {
       font-size: 2.1875rem;
@@ -48,7 +48,7 @@
   }
 
   // tablet size style
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 30rem) {
     height: calc(100vh - 5rem);
     background-position: center;
 
@@ -58,7 +58,7 @@
   }
 
   // desktop size style
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64rem) {
     height: calc(100vh - 5rem);
   }
 }

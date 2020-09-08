@@ -1,0 +1,74 @@
+// services icons and texts
+.services {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1.875rem 0;
+  padding: 0 1.25rem;
+
+  .services__item {
+    margin: 1.25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    border: 1px solid map-get($colors, light-gray);
+
+    i {
+      color: map-get($colors, middle-gray);
+      margin-bottom: 0.625rem;
+      font-size: 2.5rem;
+
+      &:active {
+        color: map-get($colors, main-orange);
+        animation: shake-icon 1s linear forwards;
+      }
+    }
+
+    p {
+      color: map-get($colors, middle-gray);
+      margin-top: 0.625rem;
+    }
+  }
+
+  // desktop size style
+  @media screen and (min-width: 64rem) {
+    flex-direction: row;
+
+    .services__item {
+      flex: 1;
+
+      i:hover {
+        color: map-get($colors, main-orange);
+        animation: shake-icon 1s linear forwards;
+      }
+    }
+  }
+}
+
+/*-------------------------------
+------- animations
+-------------------------------*/
+@keyframes shake-icon {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(5px);
+  }
+  40% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(7px);
+  }
+  80% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

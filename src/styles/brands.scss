@@ -1,0 +1,49 @@
+@mixin backgroundImage($url) {
+  background-image: $url;
+  background-size: cover;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+}
+
+// these brands are just for tablet and desktop screens
+.brands {
+  display: none;
+
+  @media screen and (min-width: 64rem) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2.5rem 0;
+    padding: 0.625rem;
+
+    .brands__item {
+      border: 1px solid map-get($colors, light-gray);
+      padding: 2.5rem;
+      width: 200px;
+      height: 200px;
+      transition: padding 0.5s ease-out;
+      transition: background-color 0.3s linear;
+
+      &:hover {
+        background-color: map-get($colors, light-gray);
+        padding: 1.25rem;
+      }
+    }
+
+    .brand1 {
+      @include backgroundImage(url(' ../images/brand1.jpg '));
+    }
+    .brand2 {
+      @include backgroundImage(url(' ../images/brand2.jpg '));
+    }
+    .brand3 {
+      @include backgroundImage(url(' ../images/brand3.jpg '));
+    }
+    .brand4 {
+      @include backgroundImage(url(' ../images/brand4.jpg '));
+    }
+    .brand5 {
+      @include backgroundImage(url(' ../images/brand5.jpg '));
+    }
+  }
+}
