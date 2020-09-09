@@ -1,0 +1,89 @@
+.discount {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 3.125rem 0;
+  padding: 0.9375rem;
+
+  .discount__items {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin: 0.625rem;
+    overflow: hidden;
+
+    &:hover {
+      .discount__image {
+        transform: scale(1.1);
+        filter: blur(1px);
+      }
+
+      .discount__text h1 {
+        transform: scale(1.1);
+      }
+    }
+
+    .discount__image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      transition: transform 0.5s linear;
+    }
+
+    .discount1 {
+      background-image: url('../images/discount1.jpg');
+      background-position: left top;
+    }
+
+    .discount2 {
+      background-image: url('../images/discount2.jpg');
+      background-position: right 20% top;
+    }
+
+    .discount__information {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .discount__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid map-get($colors, light-gray);
+        padding: 1.25rem 3.125rem;
+
+        p {
+          margin: 0.625rem 1.875rem;
+          font-weight: 500;
+          font-size: 1.25rem;
+          color: map-get($colors, dark-gray);
+        }
+
+        h1 {
+          margin: 0.625rem 1.875rem;
+          font-size: 1.875rem;
+          color: map-get($colors, main-orange);
+          transition: transform 0.5s linear;
+        }
+      }
+    }
+
+    // tablet size
+    @media screen and (min-width: 30rem) {
+      height: 400px;
+    }
+  }
+
+  @media screen and (min-width: 53.125rem) {
+    //   height: 400px;
+    flex-direction: row;
+  }
+}
