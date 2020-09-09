@@ -1,0 +1,24 @@
+// separate button to scroll to top
+.scroll-to-top {
+  display: none;
+
+  @media screen and (min-width: 64rem) {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+    border: 1px solid map-get($colors, light-gray);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: map-get($colors, main-orange);
+    transition: all 0.4s linear;
+
+    i {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}

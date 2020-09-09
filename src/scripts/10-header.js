@@ -1,5 +1,5 @@
 /*-------------------------------
-------- header section
+------- side nav menu
 -------------------------------*/
 
 // mobile and tablet design
@@ -29,4 +29,13 @@ sideNavCloseIcon.addEventListener('click', () => {
 // product list preview
 productList.addEventListener('click', () => {
   productItems.classList.toggle('products-open');
+});
+
+/*-------------------------------
+------- mobile and tablet navigation buttons
+-------------------------------*/
+const homeButton = document.querySelector('.fa-home');
+
+homeButton.addEventListener('click', () => {
+  window.scrollTo(0, 0);
 });

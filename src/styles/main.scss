@@ -16,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  // position: relative;
 }
 
 body {
@@ -23,41 +24,46 @@ body {
 }
 
 /*-------------------------------
+------- global
+-------------------------------*/
+@import '01-global.scss';
+
+/*-------------------------------
 ------- header
 -------------------------------*/
-@import 'header.scss';
+@import '02-header.scss';
 
 /*-------------------------------
 ------- big image section
 -------------------------------*/
-@import 'landing-image.scss';
+@import '03-landing-image.scss';
 
 /*-------------------------------
 ------- services section
 -------------------------------*/
-@import 'services.scss';
+@import '04-services.scss';
 
 /*-------------------------------
 ------- grid gallery section
 -------------------------------*/
-@import 'gallery.scss';
+@import '05-gallery.scss';
 
 /*-------------------------------
 ------- brands section
 -------------------------------*/
-@import 'brands.scss';
+@import '06-brands.scss';
 
 /*-------------------------------
 ------- newsletter section
 -------------------------------*/
-@import 'newsletter.scss';
+@import '07-newsletter.scss';
 
 /*-------------------------------
 ------- discount section
 -------------------------------*/
-@import 'discount.scss';
+@import '08-discount.scss';
 
 /*-------------------------------
 ------- footer section
 -------------------------------*/
-@import 'footer.scss';
+@import '09-footer.scss';

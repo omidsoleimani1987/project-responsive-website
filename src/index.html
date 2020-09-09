@@ -18,10 +18,13 @@
   <body>
     <!-- global elements section -->
 
+    <!-- separate button to scroll to top -->
+    <div class="scroll-to-top"><i class="fas fa-angle-up"></i></div>
+
     <!-- end of global elements section -->
 
     <!-- header starts -->
-    <header>
+    <header id="header">
       <div class="menu-icon">
         <div></div>
         <div></div>
@@ -36,11 +39,8 @@
           <i class="far fa-times-circle"></i>
         </div>
         <ul class="navigation__list">
-          <li class="navigation__item">
-            <a href="#">HOME</a><i class="fas fa-angle-right"></i>
-          </li>
           <li class="navigation__item" id="products-list">
-            <a href="#">PRODUCTS</a><i class="fas fa-angle-right"></i>
+            <a href="#">products</a><i class="fas fa-angle-right"></i>
           </li>
           <div class="products" id="products-items">
             <ul class="products__list">
@@ -50,10 +50,11 @@
             </ul>
           </div>
           <li class="navigation__item">
-            <a href="#">CONTACT</a><i class="fas fa-angle-right"></i>
+            <a href="#newsletter">newsletter</a
+            ><i class="fas fa-angle-right"></i>
           </li>
           <li class="navigation__item">
-            <a href="#">ABOUT</a><i class="fas fa-angle-right"></i>
+            <a href="#footer">about us</a><i class="fas fa-angle-right"></i>
           </li>
         </ul>
       </nav>
@@ -143,7 +144,7 @@
     <!-- end of brands section -->
 
     <!-- newsletter section -->
-    <section class="newsletter">
+    <section class="newsletter" id="newsletter">
       <div class="newsletter__text">
         <p>
           Join <span>DAVICI</span> Family and get 10% off your next purchase!
@@ -191,7 +192,7 @@
     <!-- end of discount section -->
 
     <!-- footer starts -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="footer__items">
         <div class="footer__item">
           <h1>SHOP</h1>
@@ -240,9 +241,18 @@
           <div><i class="fab fa-twitter"></i></div>
           <div><i class="fab fa-youtube"></i></div>
         </div>
-        <div class="footer__icons--payment"></div>
+        <div class="footer__icons--payment">
+          <div><i class="fab fa-cc-mastercard"></i></div>
+          <div><i class="fab fa-cc-visa"></i></div>
+          <div><i class="fab fa-cc-paypal"></i></div>
+          <div><i class="fas fa-money-bill"></i></div>
+        </div>
       </div>
-      <div class="footer__copyright"></div>
+      <div class="footer__copyright">
+        <p>
+          Copyright &copy; 2019 - <span id="copyright"></span> by Omid Soleimani
+        </p>
+      </div>
       <div class="footer__terms">
         <p>Privacy policy</p>
         <p>Cookies</p>
