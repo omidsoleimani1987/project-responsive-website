@@ -37,7 +37,7 @@ function html() {
 // image
 function img() {
   return gulp
-    .src('./src/images/*')
+    .src('./src/images/**/*')
     .pipe(imagemin())
     .pipe(gulp.dest('./assets/images'));
 }
