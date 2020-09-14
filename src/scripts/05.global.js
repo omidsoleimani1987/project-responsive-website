@@ -18,3 +18,25 @@ document.addEventListener('scroll', () => {
 separateButton.addEventListener('click', () => {
   window.scrollTo(0, 0);
 });
+
+/*-------------------------------
+------- products modal section
+-------------------------------*/
+const modalContainer = document.querySelector('.modal');
+const closeModalIcon = document.getElementById('close-modal-icon');
+
+const openModalHandler = () => {
+  modalContainer.style.display = 'block';
+  setTimeout(() => {
+    modalContainer.style.opacity = 1;
+  }, 500);
+};
+
+const closeModalHandler = () => {
+  modalContainer.style.opacity = 0;
+  setTimeout(() => {
+    modalContainer.style.display = 'none';
+  }, 600);
+};
+
+closeModalIcon.addEventListener('click', closeModalHandler);
