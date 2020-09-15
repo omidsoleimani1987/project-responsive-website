@@ -1,5 +1,6 @@
 // common
 const gulp = require('gulp');
+const { series } = require('gulp');
 const browserSync = require('browser-sync').create();
 const rename = require('gulp-rename');
 const clean = require('gulp-clean');
@@ -14,7 +15,7 @@ const imagemin = require('gulp-imagemin');
 // js
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
+const minify = require('gulp-babel-minify');
 
 // Clean assets
 function clear() {
@@ -66,10 +67,16 @@ function js() {
     .pipe(concat('main.js'))
     .pipe(
       babel({
-        presets: ['@babel/env']
+        plugins: ['@babel/transform-runtime']
       })
     )
-    .pipe(uglify())
+    .pipe(
+      minify({
+        mangle: {
+          keepClassName: true
+        }
+      })
+    )
     .pipe(
       rename({
         extname: '.min.js'
@@ -81,7 +88,7 @@ function js() {
 
 // BrowserSync
 
-function watch() {
+function server() {
   browserSync.init({
     server: {
       baseDir: './'
@@ -96,10 +103,20 @@ function watch() {
   gulp.watch('./**/*.html').on('change', browserSync.reload);
 }
 
+// just watch the changes
+function watch() {
+  gulp.watch('./src/*.html', html);
+  gulp.watch('./src/images/*', img);
+  gulp.watch('./src/styles/*', css);
+  gulp.watch('./src/scripts/*', js);
+}
+
 exports.html = html;
 exports.css = css;
 exports.img = img;
 exports.js = js;
 
 exports.clear = clear;
+exports.build = series(js, css, html);
+exports.server = server;
 exports.watch = watch;

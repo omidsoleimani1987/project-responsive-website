@@ -1,6 +1,60 @@
 /*-------------------------------
 ------- products modal section
 -------------------------------*/
+const itemsContainer = document.querySelector('.modal__items');
+
+// set a function to send a GET request to the api and read records from database with fetch api method
+function sendHttpRequest(method, url) {
+  return fetch(url, {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        return response.json().then((error) => {
+          console.log(error);
+          throw new Error('Server-side problem!');
+        });
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      throw new Error('Something went wrong!');
+    });
+}
+
+async function getProduct(category) {
+  try {
+    const ourResponse = await sendHttpRequest(
+      'GET',
+      `http://localhost/api/product/read.php?tn=${category}`
+    );
+    // first clear the container
+    itemsContainer.innerHTML = '';
+    for (const product of ourResponse) {
+      const imageUrl = product['product-image-one'];
+      createProductItem(imageUrl);
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+const createProductItem = (imageUrl) => {
+  const item = document.createElement('div');
+  item.classList.add('modal__item');
+  item.style.backgroundImage = imageUrl;
+  item.innerHTML =
+    '<div class="item__icons"><div id="item-preview"><i class="fas fa-search"></i></div><div id="item-favorite"><i class="far fa-heart"></i></div><div id="item-card"><i class="fas fa-shopping-cart"></i></div>';
+
+  itemsContainer.appendChild(item);
+};
+
+// opening and closing the product modal element
 const modalContainer = document.querySelector('.modal');
 const closeModalIcon = document.getElementById('close-modal-icon');
 
@@ -20,58 +74,63 @@ const openModalHandler = () => {
 const closeModalHandler = () => {
   modalContainer.style.opacity = 0;
   setTimeout(() => {
+    itemsContainer.innerHTML = '';
     modalContainer.style.display = 'none';
   }, 600);
 };
 
 closeModalIcon.addEventListener('click', closeModalHandler);
 
-// ******** add listener to the products list items in ********* //
-
-// todo define getProduct request function
-
+// add listener to the products list items in
+const previewProduct = (category) => {
+  const currentModalCategory = document.getElementById(
+    'modal-current-category'
+  );
+  currentModalCategory.textContent = category;
+  getProduct(category);
+};
 // in navbar - need to open modal:
 document.getElementById('nav-livingroom').addEventListener('click', () => {
   openModalHandler();
-  getProduct('livingroom');
+  previewProduct('livingroom');
 });
 document.getElementById('nav-bedroom').addEventListener('click', () => {
   openModalHandler();
-  getProduct('bedroom');
+  previewProduct('bedroom');
 });
 document.getElementById('nav-kitchen').addEventListener('click', () => {
   openModalHandler();
-  getProduct('kitchen');
+  previewProduct('kitchen');
 });
 document.getElementById('nav-children').addEventListener('click', () => {
   openModalHandler();
-  getProduct('children');
+  previewProduct('children');
 });
 document.getElementById('nav-diningroom').addEventListener('click', () => {
   openModalHandler();
-  getProduct('diningroom');
+  previewProduct('diningroom');
 });
 document.getElementById('nav-bathroom').addEventListener('click', () => {
   openModalHandler();
-  getProduct('bathroom');
+  previewProduct('bathroom');
 });
 
 // in products modal (categories) - do NOT need to open modal
 document.getElementById('cate-livingroom').addEventListener('click', () => {
-  getProduct('livingroom');
+  previewProduct('livingroom');
 });
 document.getElementById('cate-bedroom').addEventListener('click', () => {
-  getProduct('bedroom');
+  previewProduct('bedroom');
 });
 document.getElementById('cate-kitchen').addEventListener('click', () => {
-  getProduct('kitchen');
+  previewProduct('kitchen');
 });
 document.getElementById('cate-children').addEventListener('click', () => {
-  getProduct('children');
+  previewProduct('children');
 });
 document.getElementById('cate-diningroom').addEventListener('click', () => {
-  getProduct('diningroom');
+  previewProduct('diningroom');
 });
 document.getElementById('cate-bathroom').addEventListener('click', () => {
-  getProduct('bathroom');
+  previewProduct('bathroom');
 });
