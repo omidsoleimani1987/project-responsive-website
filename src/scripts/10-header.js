@@ -12,8 +12,9 @@ const productList = document.getElementById('products-list');
 const productItems = document.getElementById('products-items');
 
 // menu button functionality
+
 const toggleSideNavClass = () => {
-  const sideNav = document.querySelector('.navigation');
+  const sideNav = document.getElementById('header-navigation');
   sideNav.classList.toggle('sideNav-open');
 };
 

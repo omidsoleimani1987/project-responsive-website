@@ -101,5 +101,5 @@ exports.css = css;
 exports.img = img;
 exports.js = js;
 
-exports.clear = clear; // "gulp clear" : all in assets folder
-exports.watch = watch; // "gulp watch" : create server and to watch js, img, scss
+exports.clear = clear;
+exports.watch = watch;
