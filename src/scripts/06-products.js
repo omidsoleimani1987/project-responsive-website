@@ -36,22 +36,28 @@ async function getProduct(category) {
     // first clear the container
     itemsContainer.innerHTML = '';
     for (const product of ourResponse) {
-      const imageUrl = product['product-image-one'];
-      createProductItem(imageUrl);
+      const imageUrlOne = product['product-image-one'];
+      const imageUrlThree = product['product-image-three'];
+      createProductItem(imageUrlOne, imageUrlThree);
     }
   } catch (error) {
     console.log(error.message);
   }
 }
 
-const createProductItem = (imageUrl) => {
+const createProductItem = (imageUrlOne, imageUrlThree) => {
   const item = document.createElement('div');
   item.classList.add('modal__item');
-  item.style.backgroundImage = imageUrl;
+  item.style.backgroundImage = imageUrlOne;
   item.innerHTML =
-    '<div class="item__icons"><div id="item-preview"><i class="fas fa-search"></i></div><div id="item-favorite"><i class="far fa-heart"></i></div><div id="item-card"><i class="fas fa-shopping-cart"></i></div>';
-
+    '<div class="item__icons"><div id="item-preview"><i class="fas fa-search"></i></div><div id="item-favorite"><i class="far fa-heart"></i></div><div id="item-card"><i class="fas fa-shopping-cart"></i></div></div>';
   itemsContainer.appendChild(item);
+  item.addEventListener('mouseenter', (e) => {
+    e.target.style.backgroundImage = imageUrlThree;
+  });
+  item.addEventListener('mouseout', (e) => {
+    e.target.style.backgroundImage = imageUrlOne;
+  });
 };
 
 // opening and closing the product modal element
@@ -86,51 +92,26 @@ const previewProduct = (category) => {
   const currentModalCategory = document.getElementById(
     'modal-current-category'
   );
-  currentModalCategory.textContent = category;
+  currentModalCategory.textContent =
+    category.charAt(0).toUpperCase() + category.slice(1);
   getProduct(category);
 };
+
 // in navbar - need to open modal:
-document.getElementById('nav-livingroom').addEventListener('click', () => {
-  openModalHandler();
-  previewProduct('livingroom');
-});
-document.getElementById('nav-bedroom').addEventListener('click', () => {
-  openModalHandler();
-  previewProduct('bedroom');
-});
-document.getElementById('nav-kitchen').addEventListener('click', () => {
-  openModalHandler();
-  previewProduct('kitchen');
-});
-document.getElementById('nav-children').addEventListener('click', () => {
-  openModalHandler();
-  previewProduct('children');
-});
-document.getElementById('nav-diningroom').addEventListener('click', () => {
-  openModalHandler();
-  previewProduct('diningroom');
-});
-document.getElementById('nav-bathroom').addEventListener('click', () => {
-  openModalHandler();
-  previewProduct('bathroom');
+document.querySelector('.products__list').addEventListener('click', (e) => {
+  if (e.target.tagName == 'A') {
+    let text = e.target.textContent.toLowerCase();
+    text = text.replace(' ', '');
+    openModalHandler();
+    previewProduct(text);
+  }
 });
 
 // in products modal (categories) - do NOT need to open modal
-document.getElementById('cate-livingroom').addEventListener('click', () => {
-  previewProduct('livingroom');
-});
-document.getElementById('cate-bedroom').addEventListener('click', () => {
-  previewProduct('bedroom');
-});
-document.getElementById('cate-kitchen').addEventListener('click', () => {
-  previewProduct('kitchen');
-});
-document.getElementById('cate-children').addEventListener('click', () => {
-  previewProduct('children');
-});
-document.getElementById('cate-diningroom').addEventListener('click', () => {
-  previewProduct('diningroom');
-});
-document.getElementById('cate-bathroom').addEventListener('click', () => {
-  previewProduct('bathroom');
+document.querySelector('.modal__categories').addEventListener('click', (e) => {
+  if (e.target.tagName == 'P') {
+    let text = e.target.textContent.toLowerCase();
+    text = text.replace(' ', '');
+    previewProduct(text);
+  }
 });
