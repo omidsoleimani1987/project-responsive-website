@@ -29,9 +29,14 @@ body {
 @import '00-global.scss';
 
 /*-------------------------------
-------- global
+------- all products from category
 -------------------------------*/
 @import '01-products-modal.scss';
+
+/*-------------------------------
+------- single product from category
+-------------------------------*/
+@import '011-single-product.scss';
 
 /*-------------------------------
 ------- header
