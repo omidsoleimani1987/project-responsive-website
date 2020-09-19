@@ -7,9 +7,16 @@
         "diningroom",
         "ecommerce",
         "errmode",
+        "firstname",
+        "lastname",
         "livingroom",
         "nav",
         "nav diningroom",
-        "nav livingroom"
+        "nav livingroom",
+        "signin",
+        "signup",
+        "user",
+        "user signin",
+        "user signup"
     ]
 }

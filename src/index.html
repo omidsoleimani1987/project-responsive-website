@@ -156,17 +156,125 @@
       <!-- header icons -->
       <div class="navigation__bottom-icons">
         <i class="fas fa-home"></i>
-        <i class="fas fa-sign-in-alt"></i>
+        <i class="fas fa-sign-in-alt" id="user-bottom-icon"></i>
         <i class="fas fa-search"></i>
         <i class="far fa-heart"></i>
       </div>
       <div class="navigation__top-icons">
-        <i class="fas fa-sign-in-alt"></i>
+        <i class="fas fa-sign-in-alt" id="user-top-icon"></i>
         <i class="far fa-heart"></i>
         <i class="fas fa-shopping-cart"></i>
       </div>
     </header>
     <!-- header ends -->
+
+    <!-- login and sign up section start -->
+    <div class="user">
+      <i id="close-user" class="far fa-window-close"></i>
+      <div class="user__modal">
+        <!-- user login start -->
+        <div class="user__modal--login">
+          <div class="login__header">
+            <i class="fas fa-sign-in-alt"></i>
+            <h2>Login</h2>
+          </div>
+
+          <div class="login__separator">
+            <div class="login__separator--line"></div>
+          </div>
+
+          <div class="login__content">
+            <form>
+              <div class="login__username">
+                <label for="username">username</label>
+                <input type="text" name="username" required />
+                <p id="username-error">i am username error</p>
+              </div>
+
+              <div class="login__password">
+                <label for="username">password</label>
+                <input type="password" name="password" required />
+                <p id="password-error">i am password error</p>
+              </div>
+            </form>
+
+            <div class="login__button">
+              <button class="login__button--login">Login</button>
+              <button class="login__button--register">create an account</button>
+            </div>
+          </div>
+        </div>
+        <!-- user login end -->
+
+        <!-- user register start -->
+        <div class="user__modal--signup">
+          <div class="signup__header">
+            <i class="far fa-user"></i>
+            <h2>Sign up</h2>
+          </div>
+
+          <div class="signup__separator">
+            <div class="signup__separator--line"></div>
+          </div>
+
+          <div class="signup__content">
+            <form>
+              <div class="signup__firstname">
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="first name"
+                  required
+                />
+                <p id="firstname-error">i am first name error</p>
+              </div>
+
+              <div class="signup__lastname">
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="last name"
+                  required
+                />
+                <p id="lastname-error">i am last name error</p>
+              </div>
+
+              <div class="signup__email">
+                <input type="email" name="email" placeholder="email" required />
+                <p id="password-error">i am email error</p>
+              </div>
+
+              <div class="signup__username">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="username"
+                  required
+                />
+                <p id="username-error">i am username error</p>
+              </div>
+
+              <div class="signup__password">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  required
+                />
+                <p id="password-error">i am password error</p>
+              </div>
+            </form>
+
+            <div class="signup__button">
+              <button class="signup__button--register">register</button>
+            </div>
+          </div>
+        </div>
+        <!-- user register end -->
+      </div>
+    </div>
+
+    <!-- login and sign up section end -->
 
     <!-- big landing image section -->
     <section class="slideshow fade-in" id="slideshow-container">

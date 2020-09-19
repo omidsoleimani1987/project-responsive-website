@@ -31,17 +31,22 @@ body {
 /*-------------------------------
 ------- all products from category
 -------------------------------*/
-@import '01-products-modal.scss';
+@import '01-1-products-modal.scss';
 
 /*-------------------------------
 ------- single product from category
 -------------------------------*/
-@import '011-single-product.scss';
+@import '01-2-single-product.scss';
 
 /*-------------------------------
 ------- header
 -------------------------------*/
-@import '02-header.scss';
+@import '02-1-header.scss';
+
+/*-------------------------------
+------- user section
+-------------------------------*/
+@import '02-2-user.scss';
 
 /*-------------------------------
 ------- big image section
