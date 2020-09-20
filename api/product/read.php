@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:3000/index.html");
+header("Access-Control-Allow-Origin: http://localhost/index.html");
 header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
 header('Access-Control-Allow-Headers', 'Content-Type');

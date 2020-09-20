@@ -24,3 +24,40 @@
     }
   }
 }
+
+/*-------------------------------
+------- show result modal 
+-------------------------------*/
+.result {
+  width: 300px;
+  height: 130px;
+  background-color: map-get($colors, light-gray);
+  position: fixed;
+  bottom: 55px;
+  left: -100%;
+  z-index: 1000;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px map-get($colors, light-gray);
+  border-radius: 5px;
+  transition: left 0.3s ease-in-out;
+
+  i {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  i#success {
+    color: rgb(54, 255, 4);
+  }
+
+  i#failure {
+    color: rgb(255, 4, 4);
+  }
+}
+
+.show-result {
+  left: 20px;
+}

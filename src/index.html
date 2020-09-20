@@ -18,6 +18,20 @@
   <body>
     <!-- global section -->
 
+    <!-- separate button to scroll to top -->
+    <div class="scroll-to-top"><i class="fas fa-angle-up"></i></div>
+    <!-- end of separate button to scroll to top -->
+
+    <!-- result modal start -->
+    <div class="result">
+      <i id="success" class="fas fa-check-circle"></i>
+      <i id="failure" class="fas fa-exclamation-circle"></i>
+      <h5 id="result-message">omid soleimani</h5>
+    </div>
+    <!-- result modal end -->
+
+    <!-- end of global section -->
+
     <!-- all products modal section -->
     <div class="modal">
       <!-- modal header start -->
@@ -95,12 +109,6 @@
       </div>
     </div>
     <!-- single product section end -->
-
-    <!-- separate button to scroll to top -->
-    <div class="scroll-to-top"><i class="fas fa-angle-up"></i></div>
-    <!-- end of separate button to scroll to top -->
-
-    <!-- end of global section -->
 
     <!-- header starts -->
     <header id="header">
@@ -184,22 +192,38 @@
           </div>
 
           <div class="login__content">
-            <form>
+            <form id="login-form">
               <div class="login__username">
                 <label for="username">username</label>
-                <input type="text" name="username" required />
+                <input
+                  id="login__username"
+                  type="text"
+                  name="username"
+                  pattern="[a-zA-Z0-9]+"
+                  required
+                />
                 <p id="username-error">i am username error</p>
               </div>
 
               <div class="login__password">
                 <label for="username">password</label>
-                <input type="password" name="password" required />
+                <input
+                  type="password"
+                  name="password"
+                  id="login__password"
+                  required
+                />
                 <p id="password-error">i am password error</p>
               </div>
             </form>
 
             <div class="login__button">
-              <button class="login__button--login">Login</button>
+              <input
+                type="submit"
+                form="login-form"
+                class="login__button--login"
+                value="Login"
+              />
               <button class="login__button--register">create an account</button>
             </div>
           </div>
@@ -218,12 +242,13 @@
           </div>
 
           <div class="signup__content">
-            <form>
+            <form id="signup-form">
               <div class="signup__firstname">
                 <input
                   type="text"
                   name="firstname"
                   placeholder="first name"
+                  pattern="[A-Za-z ]+"
                   required
                 />
                 <p id="firstname-error">i am first name error</p>
@@ -234,6 +259,7 @@
                   type="text"
                   name="lastname"
                   placeholder="last name"
+                  pattern="[A-Za-z ]+"
                   required
                 />
                 <p id="lastname-error">i am last name error</p>
@@ -249,6 +275,7 @@
                   type="text"
                   name="username"
                   placeholder="username"
+                  pattern="[A-Za-z ]+"
                   required
                 />
                 <p id="username-error">i am username error</p>
@@ -266,7 +293,12 @@
             </form>
 
             <div class="signup__button">
-              <button class="signup__button--register">register</button>
+              <input
+                type="submit"
+                form="signup-form"
+                class="signup__button--register"
+                value="Register"
+              />
             </div>
           </div>
         </div>

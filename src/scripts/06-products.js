@@ -5,9 +5,10 @@ const itemsContainer = document.querySelector('.modal__items');
 const singleItemContainer = document.querySelector('.single-product');
 
 // set a function to send a GET request to the api and read records from database with fetch api method
-function sendHttpRequest(method, url) {
+function sendHttpRequest(method, url, data) {
   return fetch(url, {
     method: method,
+    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json'
     }
@@ -17,13 +18,13 @@ function sendHttpRequest(method, url) {
         return response.json();
       } else {
         return response.json().then((error) => {
-          console.log(error);
+          showResultModal(false, error);
           throw new Error('Server-side problem!');
         });
       }
     })
     .catch((error) => {
-      console.log(error);
+      showResultModal(false, error);
       throw new Error('Something went wrong!');
     });
 }
@@ -141,7 +142,7 @@ async function getProduct(category) {
       });
     }
   } catch (error) {
-    console.log(error.message);
+    showResultModal(false, error.message);
   }
 }
 
