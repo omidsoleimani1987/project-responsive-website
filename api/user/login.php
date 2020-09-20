@@ -28,8 +28,7 @@ $stmt = $login->read();
 
 $search_result = false;
 while ($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-
-    if($result['username'] == $username && password_verify($password, $result['password'])) {
+    if($result['username'] == $username && $result['password'] == $password) {
         $search_result = true;
         $_SESSION['login'] = true;
         break;

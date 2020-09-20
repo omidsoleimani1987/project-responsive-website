@@ -200,9 +200,11 @@
                   type="text"
                   name="username"
                   pattern="[a-zA-Z0-9]+"
+                  title="just letters and numbers are acceptable and 8 character long"
+                  minlength="8"
                   required
                 />
-                <p id="username-error">i am username error</p>
+                <p id="login-username-error"></p>
               </div>
 
               <div class="login__password">
@@ -211,9 +213,11 @@
                   type="password"
                   name="password"
                   id="login__password"
+                  minlength="8"
+                  title="minimum length 8 character"
                   required
                 />
-                <p id="password-error">i am password error</p>
+                <p id="login-password-error"></p>
               </div>
             </form>
 
@@ -247,48 +251,62 @@
                 <input
                   type="text"
                   name="firstname"
+                  id="signup__firstname"
                   placeholder="first name"
                   pattern="[A-Za-z ]+"
                   required
                 />
-                <p id="firstname-error">i am first name error</p>
+                <p id="firstname-error"></p>
               </div>
 
               <div class="signup__lastname">
                 <input
                   type="text"
                   name="lastname"
+                  id="signup__lastname"
                   placeholder="last name"
                   pattern="[A-Za-z ]+"
                   required
                 />
-                <p id="lastname-error">i am last name error</p>
+                <p id="lastname-error"></p>
               </div>
 
               <div class="signup__email">
-                <input type="email" name="email" placeholder="email" required />
-                <p id="password-error">i am email error</p>
+                <input
+                  type="email"
+                  name="email"
+                  id="signup__email"
+                  placeholder="email"
+                  required
+                />
+                <p id="email-error"></p>
               </div>
 
               <div class="signup__username">
                 <input
                   type="text"
                   name="username"
+                  id="signup__username"
                   placeholder="username"
-                  pattern="[A-Za-z ]+"
+                  pattern="[a-zA-Z0-9]+"
+                  title="just letters and numbers are acceptable and 8 character long"
+                  minlength="8"
                   required
                 />
-                <p id="username-error">i am username error</p>
+                <p id="signup-username-error"></p>
               </div>
 
               <div class="signup__password">
                 <input
                   type="password"
                   name="password"
+                  id="signup__password"
                   placeholder="password"
+                  minlength="8"
+                  title="minimum length 8 character"
                   required
                 />
-                <p id="password-error">i am password error</p>
+                <p id="signup-password-error"></p>
               </div>
             </form>
 

@@ -10,6 +10,7 @@
         "firstname",
         "lastname",
         "livingroom",
+        "minlength",
         "nav",
         "nav diningroom",
         "nav livingroom",
