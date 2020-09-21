@@ -14,6 +14,12 @@ const productItems = document.getElementById('products-items');
 // menu button functionality
 
 const toggleSideNavClass = () => {
+  // first close the right menu if it is open
+  const rightMenu = document.querySelector('.right-menu');
+  if (rightMenu.classList.contains('right-menu-toggle')) {
+    rightMenu.classList.remove('right-menu-toggle');
+  }
+
   const sideNav = document.getElementById('header-navigation');
   sideNav.classList.toggle('sideNav-open');
 };

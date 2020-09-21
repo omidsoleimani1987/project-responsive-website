@@ -23,5 +23,5 @@ const showResultModal = (status, message) => {
     successIcon.style.display = 'none';
     failureIcon.style.display = 'none';
     resultMessage.textContent = '';
-  }, 3000);
+  }, 2000);
 };

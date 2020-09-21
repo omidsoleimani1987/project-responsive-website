@@ -54,7 +54,8 @@ async function getProduct(category) {
         id: productId,
         title: productTitle,
         price: productPrice,
-        image: imageUrlOne
+        image: imageUrlOne,
+        count: 1
       };
       // * first to preview in all products modal section
       // creating the element
@@ -121,7 +122,8 @@ async function getProduct(category) {
             id: productId,
             title: productTitle,
             price: productPrice,
-            image: imageUrlOne
+            image: imageUrlOne,
+            count: 1
           };
           setActiveProduct(activeProduct);
           // ******************
@@ -154,6 +156,35 @@ async function getProduct(category) {
           const singleProductDescription = document.querySelector(
             '.product__info p'
           );
+
+          // ! amount action + button handler start
+          const singleProductCount = document.querySelector('.actions__amount');
+          singleProductCount.textContent = '1';
+
+          const actionAdd = document.querySelector('.actions__change--add');
+          const actionSub = document.querySelector('.actions__change--remove');
+
+          actionAdd.addEventListener('click', () => {
+            let count = parseInt(singleProductCount.textContent);
+
+            count++;
+
+            singleProductCount.textContent = count;
+          });
+
+          actionSub.addEventListener('click', () => {
+            let count = parseInt(singleProductCount.textContent);
+
+            count--;
+
+            if (count < 1) {
+              count = 1;
+            }
+
+            singleProductCount.textContent = count;
+          });
+
+          // ! amount action + button handler end
 
           productMainImage.style.backgroundImage = imageUrlOne;
           productMainOne.style.backgroundImage = imageUrlOne;
@@ -262,6 +293,8 @@ const SingleProductCloseIcon = document.querySelector(
 
 SingleProductCloseIcon.addEventListener('click', () => {
   singleItemContainer.classList.remove('single-product--open');
+
+  localStorage.removeItem('activeProduct');
 });
 
 // add to favorite
@@ -277,7 +310,9 @@ SingleProductFavoriteIcon.addEventListener('click', () => {
 const SingleProductChartIcon = document.querySelector('.actions__chart');
 
 SingleProductChartIcon.addEventListener('click', () => {
-  const activeProduct = JSON.parse(localStorage.getItem('activeProduct'));
+  let productCount = document.querySelector('.actions__amount');
+  productCount = parseInt(productCount.textContent);
 
-  addToChart(activeProduct);
+  const activeProduct = JSON.parse(localStorage.getItem('activeProduct'));
+  addToChart(activeProduct, productCount);
 });
