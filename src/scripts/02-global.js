@@ -1,3 +1,6 @@
+/*-------------------------------
+------- result modal
+-------------------------------*/
 const resultModal = document.querySelector('.result');
 const successIcon = document.getElementById('success');
 const failureIcon = document.getElementById('failure');

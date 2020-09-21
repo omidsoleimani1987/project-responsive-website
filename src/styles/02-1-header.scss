@@ -10,14 +10,14 @@ header {
 
   // hamburger icon
   .menu-icon {
-    margin: 0 15px;
+    margin: 0 0.9375rem;
     cursor: pointer;
 
     div {
       width: 25px;
       height: 3px;
       background-color: map-get($colors, main-orange);
-      margin: 4px 0;
+      margin: 0.25rem 0;
     }
   }
 
@@ -47,7 +47,7 @@ header {
     align-items: center;
     justify-content: space-around;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 64rem) {
       display: none;
     }
   }
@@ -58,7 +58,7 @@ header {
       display: none;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 64rem) {
       display: flex;
       justify-content: space-around;
 
@@ -93,22 +93,22 @@ header {
       height: 55px;
 
       p {
-        font-size: 20px;
+        font-size: 1.25rem;
       }
 
       // close icon
       i {
         padding: 0;
-        margin-right: 15px;
+        margin-right: 0.9375rem;
         color: #ffffff;
-        font-size: 20px;
+        font-size: 1.25rem;
       }
     }
 
     // navigation list
     .navigation__list {
       width: 100%;
-      padding: 30px 10px 0 15px;
+      padding: 1.875rem 0.625rem 0 0.9375rem;
       list-style-type: none;
 
       // navigation list items
@@ -140,7 +140,7 @@ header {
 
         .products__item {
           cursor: pointer;
-          padding-left: 15px;
+          padding-left: 0.9375rem;
           line-height: 40px;
           height: 40px;
           color: map-get($colors, dark-gray);
@@ -162,7 +162,7 @@ header {
 
       i {
         color: map-get($colors, light-gray);
-        font-size: 15px;
+        font-size: 0.9375rem;
       }
 
       a {
@@ -172,7 +172,7 @@ header {
     }
 
     // changing the style of navbar in desktop size screens
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 64rem) {
       position: static;
       overflow: initial;
 
@@ -191,8 +191,8 @@ header {
         .navigation__item {
           height: 100%;
           border: none;
-          margin: 0 20px;
-          font-size: 20px;
+          margin: 0 1.25rem;
+          font-size: 1.25rem;
 
           i {
             display: none;
@@ -209,7 +209,7 @@ header {
               height: 3px;
               top: 100%;
               left: 0;
-              margin-top: 8px;
+              margin-top: 0.5rem;
               transform: scaleX(0);
               transition: transform 0.4s ease-out;
               background-color: map-get($colors, main-orange);
@@ -240,7 +240,7 @@ header {
           background-position: right bottom;
 
           .products__list {
-            padding: 0 20px;
+            padding: 0 1.25rem;
             width: 40%;
             .products__item {
               border-bottom: 1px solid map-get($colors, light-gray);
@@ -274,7 +274,7 @@ header {
   }
 
   // desktop size style
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64rem) {
     // hamburger icon
     .menu-icon {
       display: none;
@@ -282,7 +282,7 @@ header {
 
     // logo image
     img {
-      margin-left: 15px;
+      margin-left: 0.9375rem;
     }
   }
 }

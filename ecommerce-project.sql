@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2020 at 05:20 PM
+-- Generation Time: Sep 21, 2020 at 11:32 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -219,6 +219,29 @@ INSERT INTO `livingroom` (`id`, `product-title`, `product-size`, `product-price`
 (7, 'Adipiscing Fringilla Quam Conubia Leo', '105/45/60 cm', '€ 119,–', 'Congue Turpis Gravida Cum Magna Massa Hymenaeos Penatibus Porttitor hac senectus imperdiet Natoque mauris risus euismod hac diam aenean mattis odio. Nonummy phasellus orci diam habitasse aptent lorem.', 'url(\'assets/images/livingroom/seven/one.jpg\')', 'url(\'assets/images/livingroom/seven/two.jpg\')', 'url(\'assets/images/livingroom/seven/three.jpg\')', 'url(\'assets/images/livingroom/seven/four.jpg\')', '2020-09-14 14:57:49'),
 (8, 'Tempus Mauris Ligula Ultrices Ligula', '218x324x170 cm', '€ 1.349,–', 'Accumsan Turpis Cum In Aenean Aenean Habitant cubilia hymenaeos fames laoreet lobortis facilisis quisque. Id. Pretium aenean suspendisse libero ac dictumst eros risus maecenas dolor. Senectus.', 'url(\'assets/images/livingroom/eight/one.jpg\')', 'url(\'assets/images/livingroom/eight/two.jpg\')', 'url(\'assets/images/livingroom/eight/three.jpg\')', 'url(\'assets/images/livingroom/eight/four.jpg\')', '2020-09-14 14:57:49');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `username`, `password`, `creation_date`) VALUES
+(31, 'omid', 'soleimani', 'o.soleimani.ie@gmail.com', 'omidsoleimani', 'omidsoleimani', '2020-09-20 19:59:23');
+
 --
 -- Indexes for dumped tables
 --
@@ -260,6 +283,12 @@ ALTER TABLE `livingroom`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -298,6 +327,12 @@ ALTER TABLE `kitchen`
 --
 ALTER TABLE `livingroom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -49,6 +49,13 @@ async function getProduct(category) {
       const imageUrlThree = product['product-image-three'];
       const imageUrlFour = product['product-image-four'];
 
+      const itemObject = {
+        category: category,
+        id: productId,
+        title: productTitle,
+        price: productPrice,
+        image: imageUrlOne
+      };
       // * first to preview in all products modal section
       // creating the element
       const item = document.createElement('div');
@@ -75,6 +82,10 @@ async function getProduct(category) {
       itemFavorite.setAttribute('id', 'item-favorite');
       itemIcons.appendChild(itemFavorite);
 
+      itemFavorite.addEventListener('click', () => {
+        addToFavorite(itemObject);
+      });
+
       const itemFavoriteIcon = document.createElement('i');
       itemFavoriteIcon.classList.add('far', 'fa-heart');
       itemFavorite.appendChild(itemFavoriteIcon);
@@ -84,6 +95,9 @@ async function getProduct(category) {
       itemCard.setAttribute('id', 'item-card');
       itemIcons.appendChild(itemCard);
 
+      itemCard.addEventListener('click', () => {
+        addToChart(itemObject);
+      });
       const itemCardIcon = document.createElement('i');
       itemCardIcon.classList.add('fas', 'fa-shopping-cart');
       itemCard.appendChild(itemCardIcon);
@@ -91,55 +105,78 @@ async function getProduct(category) {
       // then append all to the container
       itemsContainer.appendChild(item);
       item.addEventListener('mouseenter', (e) => {
-        e.target.style.backgroundImage = imageUrlThree;
+        e.currentTarget.style.backgroundImage = imageUrlThree;
       });
       item.addEventListener('mouseout', (e) => {
-        e.target.style.backgroundImage = imageUrlOne;
+        e.currentTarget.style.backgroundImage = imageUrlOne;
       });
 
       // ! then to preview each product separately in another modal section
-      item.addEventListener('click', () => {
-        singleItemContainer.classList.add('single-product--open');
+      itemPreview.addEventListener(
+        'click',
+        () => {
+          // set the local storage active object
+          const activeProduct = {
+            category: category,
+            id: productId,
+            title: productTitle,
+            price: productPrice,
+            image: imageUrlOne
+          };
+          setActiveProduct(activeProduct);
+          // ******************
 
-        const productMainImage = document.querySelector(
-          '.product__images--main'
-        );
-        const productMainOne = document.querySelector('.thumbnail-image__one');
-        const productMainTwo = document.querySelector('.thumbnail-image__two');
-        const productMainThree = document.querySelector(
-          '.thumbnail-image__three'
-        );
-        const productMainFour = document.querySelector(
-          '.thumbnail-image__four'
-        );
+          singleItemContainer.classList.add('single-product--open');
 
-        const singleProductTitle = document.querySelector('.product__info h2');
-        const singleProductPrice = document.querySelector('.product__info h3');
-        const singleProductSize = document.querySelector('.product__info h4');
-        const singleProductDescription = document.querySelector(
-          '.product__info p'
-        );
+          const productMainImage = document.querySelector(
+            '.product__images--main'
+          );
+          const productMainOne = document.querySelector(
+            '.thumbnail-image__one'
+          );
+          const productMainTwo = document.querySelector(
+            '.thumbnail-image__two'
+          );
+          const productMainThree = document.querySelector(
+            '.thumbnail-image__three'
+          );
+          const productMainFour = document.querySelector(
+            '.thumbnail-image__four'
+          );
 
-        productMainImage.style.backgroundImage = imageUrlOne;
-        productMainOne.style.backgroundImage = imageUrlOne;
-        productMainTwo.style.backgroundImage = imageUrlTwo;
-        productMainThree.style.backgroundImage = imageUrlThree;
-        productMainFour.style.backgroundImage = imageUrlFour;
-        singleProductTitle.textContent = productTitle;
-        singleProductPrice.textContent = productPrice;
-        singleProductSize.textContent = productSize;
-        singleProductDescription.textContent = productDescription;
+          const singleProductTitle = document.querySelector(
+            '.product__info h2'
+          );
+          const singleProductPrice = document.querySelector(
+            '.product__info h3'
+          );
+          const singleProductSize = document.querySelector('.product__info h4');
+          const singleProductDescription = document.querySelector(
+            '.product__info p'
+          );
 
-        const thumbnailImages = document.querySelector(
-          '.product__images--thumbnail'
-        );
-        thumbnailImages.addEventListener('click', (e) => {
-          if (e.target.className != 'product__images--thumbnail') {
-            const backgroundImage = e.target.style.backgroundImage;
-            productMainImage.style.backgroundImage = backgroundImage;
-          }
-        });
-      });
+          productMainImage.style.backgroundImage = imageUrlOne;
+          productMainOne.style.backgroundImage = imageUrlOne;
+          productMainTwo.style.backgroundImage = imageUrlTwo;
+          productMainThree.style.backgroundImage = imageUrlThree;
+          productMainFour.style.backgroundImage = imageUrlFour;
+          singleProductTitle.textContent = productTitle;
+          singleProductPrice.textContent = productPrice;
+          singleProductSize.textContent = productSize;
+          singleProductDescription.textContent = productDescription;
+
+          const thumbnailImages = document.querySelector(
+            '.product__images--thumbnail'
+          );
+          thumbnailImages.addEventListener('click', (e) => {
+            if (e.target.className != 'product__images--thumbnail') {
+              const backgroundImage = e.target.style.backgroundImage;
+              productMainImage.style.backgroundImage = backgroundImage;
+            }
+          });
+        },
+        true
+      );
     }
   } catch (error) {
     showResultModal(false, error.message);
@@ -206,6 +243,14 @@ document.querySelector('.modal__categories').addEventListener('click', (e) => {
   }
 });
 
+const setActiveProduct = (ProductObject) => {
+  if (localStorage.getItem('activeProduct') != null) {
+    localStorage.removeItem('activeProduct');
+  }
+
+  localStorage.setItem('activeProduct', JSON.stringify(ProductObject));
+};
+
 /*-------------------------------
 ------- single product modal section
 -------------------------------*/
@@ -217,4 +262,22 @@ const SingleProductCloseIcon = document.querySelector(
 
 SingleProductCloseIcon.addEventListener('click', () => {
   singleItemContainer.classList.remove('single-product--open');
+});
+
+// add to favorite
+const SingleProductFavoriteIcon = document.querySelector('.actions__favorite');
+
+SingleProductFavoriteIcon.addEventListener('click', () => {
+  const activeProduct = JSON.parse(localStorage.getItem('activeProduct'));
+
+  addToFavorite(activeProduct);
+});
+
+// add to chart
+const SingleProductChartIcon = document.querySelector('.actions__chart');
+
+SingleProductChartIcon.addEventListener('click', () => {
+  const activeProduct = JSON.parse(localStorage.getItem('activeProduct'));
+
+  addToChart(activeProduct);
 });

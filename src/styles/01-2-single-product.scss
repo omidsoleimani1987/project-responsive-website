@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0 5px 30px;
+  padding: 0 0.3125rem 1.875rem;
   height: calc(100% - 50px);
   z-index: 1000;
   overflow-y: scroll;
@@ -20,7 +20,7 @@
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    padding: 15px 0;
+    padding: 0.9375rem 0;
     background-color: #ffffff;
     cursor: pointer;
 
@@ -30,7 +30,7 @@
     }
 
     i {
-      margin: 0 10px;
+      margin: 0 0.625rem;
     }
 
     &:hover {
@@ -58,7 +58,7 @@
       height: 390px;
       transition: all 0.3s linear;
 
-      @media screen and (min-width: 700px) {
+      @media screen and (min-width: 43.75rem) {
         height: 450px;
       }
     }
@@ -68,7 +68,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      padding: 20px 0;
+      padding: 1.25rem 0;
 
       div {
         width: 20%;
@@ -95,15 +95,15 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 
     h3 {
-      margin: 10px 0 5px;
+      margin: 0.625rem 0 0.3125rem;
       color: map-get($colors, main-orange);
     }
 
     p {
-      margin: 10px 0;
+      margin: 0.625rem 0;
       color: map-get($colors, middle-gray);
     }
 
@@ -137,14 +137,14 @@
       }
 
       .actions__chart {
-        margin: 0 5px;
+        margin: 0 0.3125rem;
         width: 180px;
         background-color: #000000;
         color: #ffffff;
 
         p {
           color: #ffffff;
-          margin-left: 10px;
+          margin-left: 0.625rem;
         }
 
         &:hover {
@@ -160,7 +160,7 @@
   }
 
   // changing the entire container for desktop size screens
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 64rem) {
     flex-direction: row;
     height: 100vh;
     // padding: 0 5px;
@@ -173,7 +173,7 @@
 
     .product__images,
     .product__info {
-      margin-top: 60px;
+      margin-top: 3.75rem;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -183,11 +183,11 @@
     .product__info {
       width: 45%;
 
-      padding: 50px 20px 0;
+      padding: 3.125rem 1.25rem 0;
       justify-content: flex-start;
 
       .info__actions {
-        margin-top: 20px;
+        margin-top: 1.25rem;
       }
     }
   }

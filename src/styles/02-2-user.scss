@@ -13,8 +13,8 @@
 
   & > i {
     color: map-get($colors, main-orange);
-    font-size: 40px;
-    margin: 50px 0 10px;
+    font-size: 2.5rem;
+    margin: 3.125rem 0 0.625rem;
     cursor: pointer;
     transition: transform 0.5s ease;
 
@@ -52,8 +52,8 @@
         height: 110px;
 
         & > i {
-          margin-bottom: 10px;
-          font-size: 20px;
+          margin-bottom: 0.625rem;
+          font-size: 1.25rem;
         }
       }
 
@@ -103,18 +103,18 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 0.9375rem;
 
             label {
               color: map-get($colors, middle-gray);
-              margin-bottom: 5px;
-              font-size: 12px;
+              margin-bottom: 0.3125rem;
+              font-size: 0.75rem;
             }
 
             p {
               color: map-get($colors, middle-gray);
-              margin-top: 2px;
-              font-size: 12px;
+              margin-top: 0.125rem;
+              font-size: 0.75rem;
               color: #ff0831;
             }
 
@@ -144,8 +144,8 @@
           .login__button--register,
           .signup__button--register {
             font-family: inherit;
-            padding: 8px;
-            margin: 4px 0;
+            padding: 0.5rem;
+            margin: 0.25rem 0;
             width: 50%;
             max-width: 250px;
             background-color: white;
@@ -183,7 +183,7 @@
       .signup__username,
       .signup__email,
       .signup__password {
-        margin-bottom: 5px;
+        margin-bottom: 0.3125rem;
       }
     }
     .signup__button {
