@@ -44,7 +44,6 @@ openFavoriteMenuIcon1.addEventListener('click', () => {
   if (!rightMenuFooter.classList.contains('right-menu__footer--close')) {
     rightMenuFooter.classList.add('right-menu__footer--close');
   }
-  console.log('im first');
 
   createFavorite();
   toggleRightMenu();
@@ -55,7 +54,7 @@ openFavoriteMenuIcon2.addEventListener('click', () => {
   if (!rightMenuFooter.classList.contains('right-menu__footer--close')) {
     rightMenuFooter.classList.add('right-menu__footer--close');
   }
-  console.log('im second');
+
   createFavorite();
   toggleRightMenu();
 });
