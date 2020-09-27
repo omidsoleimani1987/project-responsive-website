@@ -96,7 +96,8 @@ loginForm.addEventListener('submit', (e) => {
       password: loginPassword.value.trim()
     };
 
-    const url = 'http://localhost/api/user/login.php';
+    const url =
+      'https://www.omid-soleimani.com/projects/davici/api/user/login.php';
     try {
       sendUserInfo('POST', url, userInfo)
         .then((response) => {
@@ -269,7 +270,8 @@ signupForm.addEventListener('submit', (e) => {
       password: signupPassword.value.trim()
     };
 
-    const url = 'http://localhost/api/user/register.php';
+    const url =
+      'https://www.omid-soleimani.com/projects/davici/api/user/register.php';
     try {
       sendUserInfo('POST', url, userInfo)
         .then((response) => {

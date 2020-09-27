@@ -33,7 +33,7 @@ async function getProduct(category) {
   try {
     const ourResponse = await sendHttpRequest(
       'GET',
-      `http://localhost/api/product/read.php?tn=${category}`
+      `https://www.omid-soleimani.com/projects/davici/api/product/read.php?tn=${category}`
     );
     // first clear the container
     itemsContainer.innerHTML = '';
