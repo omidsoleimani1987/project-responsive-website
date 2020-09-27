@@ -1,8 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: https://www.omid-soleimani.com/index.html");
+header("Access-Control-Allow-Origin: https://omid-soleimani.com/index.html");
 header("Access-Control-Allow-Methods: GET");
 header("Content-Type: application/json; charset=UTF-8");
-header('Access-Control-Allow-Headers', 'Content-Type');
+header('Access-Control-Allow-Headers: Content-Type');
 
 include_once '../config/database.php';
 include_once '../objects/product.php';

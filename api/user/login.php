@@ -1,8 +1,8 @@
 <?php
-header("Access-Control-Allow-Origin: https://www.omid-soleimani.com/index.html");
+header("Access-Control-Allow-Origin: https://omid-soleimani.com/index.html");
 header("Access-Control-Allow-Methods: POST");
 header("Content-Type: application/json; charset=UTF-8");
-header('Access-Control-Allow-Headers', 'Content-Type');
+header('Access-Control-Allow-Headers: Content-Type');
 
 // check the session status and check id user logged in
 if(isset($_SESSION['login']) && $_SESSION['login'] == true) {
