@@ -2,7 +2,7 @@
 
 class Database {
 
-    private $host = "https://www.mysql.omid-soleimani.com";
+    private $host = "mysql.omid-soleimani.com";
     private $username = "omidsoleimani";
     private $password = "Registered1366";
     private $databaseName = "daviciprojectomid";

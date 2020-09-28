@@ -33,7 +33,7 @@ async function getProduct(category) {
   try {
     const ourResponse = await sendHttpRequest(
       'GET',
-      `https://www.omid-soleimani.com/projects/davici/api/product/read.php?tn=${category}`
+      `https://omid-soleimani.com/projects/davici/api/product/read.php?tn=${category}`
     );
     // first clear the container
     itemsContainer.innerHTML = '';
@@ -41,7 +41,8 @@ async function getProduct(category) {
       // define a variable for each response property
       const productId = product['id'];
       const productTitle = product['product-title'];
-      const productPrice = product['product-price'];
+      let productPrice = product['product-price'];
+      productPrice = '€' + productPrice.slice(1);
       const productSize = product['product-size'];
       const productDescription = product['product-description'];
       const imageUrlOne = product['product-image-one'];
